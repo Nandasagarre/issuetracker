@@ -1,0 +1,151 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ITrcaker</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/428cf22b52.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script>
+      $(function () {
+        var availableTags = [
+          "QA",
+          "DEV",
+          "Business",
+          "open",
+          "closed",
+          "pending",
+          "invalid",
+          "important"
+        ];
+        $("#tags").autocomplete({
+          source: availableTags
+        });
+      });
+    </script>
+    <style>
+      .project-form {
+        position: absolute;
+        width: 60vw;
+        height: 80vh;
+        left: 20%;
+      }
+    </style>
+  </head>
+  <body style="background-color: #eae0da;">
+    <header style="background-color: #a0c3d2;">
+      <nav
+        class="navbar navbar-expand-lg navbar-light border border-bottom-1 shadow-lg p-1 mb-2 rounded"
+      >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">I-Traker</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="collapse navbar-collapse"
+            id="navbarSupportedContent"
+            style="margin-left: 10vw;"
+          >
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/create"
+                  >Projects</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <script>
+      function postIt() {
+        window.location = window.location + "/createbug";
+      }
+    </script>
+
+    <div class="card-body project-form">
+      <form method="post" onsubmit="postIt()">
+        <div class="mb-3">
+          <label for="bug-name" class="form-label">Bug/Iussue Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bug-name"
+            aria-describedby="bug-name"
+            name="bname"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="bug-author" class="form-label">Author</label>
+          <input
+            type="text"
+            class="form-control"
+            id="bug-author"
+            aria-describedby="project-author"
+            name="bauthor"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="bug-author" class="form-label">Tags/Lables</label>
+          <input
+            placeholder="Add tags/lables with a space in between"
+            type="text"
+            class="form-control"
+            id="tags"
+            aria-describedby="project-author"
+            name="tag"
+          />
+        </div>
+
+        <label for="project-desc">Bug Description</label>
+
+        <textarea
+          id="bug-desc"
+          class="form-control"
+          name="bdesc"
+          rows="4"
+          cols="50"
+        >
+        </textarea>
+
+        <button
+          style="background-color: #eac7c7;"
+          type="submit"
+          class="btn create-btn"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+
+    <button onclick="history.go(-2)">Project View</button>
+
+    <%- include('footer.ejs') %>
+  </body>
+</html>

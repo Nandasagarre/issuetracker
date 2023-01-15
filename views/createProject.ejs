@@ -1,0 +1,49 @@
+<%- include('navbar.ejs') %>
+
+<div class="card-body project-form">
+      <form method="POST" action="/createproject">
+        <div class="mb-3">
+          <label for="project-name" class="form-label">Project Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="project-name"
+            aria-describedby="project-name"
+            name="pname"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="project-author" class="form-label">Project Author</label>
+          <input
+            type="text"
+            class="form-control"
+            id="project-author"
+            aria-describedby="project-author"
+            name="pauthor"
+          />
+        </div>
+
+        <label for="project-desc">Project Description</label>
+
+        <textarea
+          id="project-desc"
+          class="form-control"
+          name="pdesc"
+          rows="4"
+          cols="50"
+        >
+        </textarea>
+
+        <button
+          style="background-color: #eac7c7;"
+          type="submit"
+          class="btn create-btn"
+        >
+          Create
+        </button>
+      </form>
+    </div>
+
+
+<%- include('footer.ejs') %>

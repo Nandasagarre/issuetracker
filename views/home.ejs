@@ -1,0 +1,38 @@
+<%- include('navbar.ejs') %>
+
+<script>
+     function handleRouteToProjectDetails(e) {
+    console.log("handle", typeof e.id);
+    if(e.id.length != 24) return;
+    window.location = window.location + `fetchproject/${e.id}`;
+    return;
+
+}
+</script>
+
+ <style>
+      .project-item {
+  background-color: #f7f5eb;
+  margin: 2px;
+  width: 60vw;
+  height: 10vh;
+}
+      }
+      </style>
+
+ <div class="card-body text-center">
+
+      <%if(typeof p != 'undefined' && p.length > 0) {%>
+           <% p.forEach((project) =>{ %>
+                <div id=<%= project.id %> class="btn project-item text-center change" onclick="handleRouteToProjectDetails(this)"> <%= project.pname %> By <%= project.pauthor%></div>
+          <% }) %>
+      <%}%>
+
+      <form action="./create" method="get">
+      <button style="background-color: #eac7c7;" class="btn create-btn" >
+        Create New Project
+      </button>
+      </form>
+    </div>
+
+<%- include('footer.ejs') %>
